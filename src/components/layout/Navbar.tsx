@@ -52,7 +52,12 @@ export default function Navbar() {
 					<div className="bg-gradient-to-br from-primary-400 to-primary-600 p-2 rounded-xl group-hover:scale-105 transition-transform">
 						<Droplets className="w-6 h-6 text-white" />
 					</div>
-					<span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300">
+					<span className={cn(
+						"text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r transition-colors",
+						isScrolled
+							? "from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
+							: "from-white to-slate-200"
+					)}>
 						Grupo Arco Energy
 					</span>
 				</a>
@@ -64,17 +69,30 @@ export default function Navbar() {
 							key={link.name}
 							href={link.href}
 							onClick={(e) => scrollToSection(e, link.href)}
-							className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+							className={cn(
+								"text-sm font-medium transition-colors",
+								isScrolled
+									? "text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400"
+									: "text-slate-200 hover:text-white"
+							)}
 						>
 							{link.name}
 						</a>
 					))}
 
-					<div className="w-px h-6 bg-slate-200 dark:bg-slate-700" />
+					<div className={cn(
+						"w-px h-6 transition-colors",
+						isScrolled ? "bg-slate-200 dark:bg-slate-700" : "bg-white/20"
+					)} />
 
 					<button
 						onClick={toggleTheme}
-						className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300"
+						className={cn(
+							"p-2 rounded-full transition-colors",
+							isScrolled
+								? "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
+								: "hover:bg-white/10 text-slate-200 hover:text-white"
+						)}
 						aria-label="Toggle theme"
 					>
 						{theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
@@ -85,13 +103,21 @@ export default function Navbar() {
 				<div className="flex md:hidden items-center gap-4">
 					<button
 						onClick={toggleTheme}
-						className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300"
+						className={cn(
+							"p-2 rounded-full transition-colors",
+							isScrolled
+								? "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
+								: "hover:bg-white/10 text-slate-200 hover:text-white"
+						)}
 					>
 						{theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
 					</button>
 					<button
 						onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-						className="p-2 text-slate-600 dark:text-slate-300"
+						className={cn(
+							"p-2 transition-colors",
+							isScrolled ? "text-slate-600 dark:text-slate-300" : "text-white"
+						)}
 					>
 						{isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
 					</button>
