@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Droplets } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import logo from '../../assets/logo.jpg';
 import { useTheme } from '../../hooks/useTheme';
 import { cn } from '../../utils/cn'; // Need to create this utility
 import { motion, AnimatePresence } from 'framer-motion';
@@ -49,17 +50,11 @@ export default function Navbar() {
 					onClick={(e) => scrollToSection(e, '#inicio')}
 					className="flex items-center gap-2 group"
 				>
-					<div className="bg-gradient-to-br from-primary-400 to-primary-600 p-2 rounded-xl group-hover:scale-105 transition-transform">
-						<Droplets className="w-6 h-6 text-white" />
-					</div>
-					<span className={cn(
-						"text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r transition-colors",
-						isScrolled
-							? "from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
-							: "from-white to-slate-200"
-					)}>
-						Grupo Arco Energy
-					</span>
+					<img
+						src={logo}
+						alt="Grupo Arco Energy"
+						className="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
+					/>
 				</a>
 
 				{/* Desktop Navigation */}
