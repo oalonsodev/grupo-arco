@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import logo from '../../assets/logo.jpg';
+import logo from '../../assets/logo-trans.png';
 import { useTheme } from '../../hooks/useTheme';
 import { cn } from '../../utils/cn'; // Need to create this utility
 import { motion, AnimatePresence } from 'framer-motion';
