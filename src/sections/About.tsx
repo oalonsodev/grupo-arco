@@ -22,10 +22,10 @@ export default function About() {
 							Compromiso con la Excelencia Energética
 						</h3>
 						<p className="text-slate-600 dark:text-slate-400 text-lg mb-6 leading-relaxed">
-							Fundada con la visión de transformar el sector energético, Grupo Arco Energy se ha consolidado como un referente de innovación y calidad. Nuestro equipo multidisciplinario combina décadas de experiencia con tecnología de punta para ofrecer soluciones que superan las expectativas.
+							Grupo Arco Energy es una empresa de servicios y suministros industriales dedicada a proporcionar soluciones integrales a lo largo de la cadena de valor del sector energético. Nuestro enfoque prioritario es la seguridad, la eficiencia operativa y la confiabilidad, apoyando el desarrollo de proyectos upstream y downstream mediante tecnología de vanguardia y personal altamente capacitado.
 						</p>
 						<p className="text-slate-600 dark:text-slate-400 text-lg mb-8 leading-relaxed">
-							Nos regimos por estrictos estandares internacionales, priorizando siempre la seguridad de nuestro personal, el cuidado del medio ambiente y la eficiencia operativa de nuestros clientes.
+							Nuestra estrategia se alinea con los estándares globales del desarrollo energético, garantizando operaciones responsables que impulsan la soberanía energética y la rentabilidad de nuestros clientes.
 						</p>
 
 						<div className="space-y-6">
@@ -35,7 +35,7 @@ export default function About() {
 								</div>
 								<div>
 									<h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Misión</h4>
-									<p className="text-slate-600 dark:text-slate-400">Proveer servicios integrales de ingeniería y logística que impulsen la productividad del sector petrolero.</p>
+									<p className="text-slate-600 dark:text-slate-400">Brindar servicios de ingeniería y mantenimiento industrial de alta calidad que superen las expectativas de nuestros clientes, operando bajo los más estrictos estándares de seguridad y respeto al medio ambiente.</p>
 								</div>
 							</div>
 
@@ -45,7 +45,7 @@ export default function About() {
 								</div>
 								<div>
 									<h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Visión</h4>
-									<p className="text-slate-600 dark:text-slate-400">Ser reconocidos globalmente como el socio estratégico preferido por nuestra capacidad técnica y humana.</p>
+									<p className="text-slate-600 dark:text-slate-400">Ser el aliado estratégico preferente en el sector energético industrial, reconocidos por nuestra innovación tecnológica, capacidad de resolución de problemas y compromiso con la continuidad operativa.</p>
 								</div>
 							</div>
 						</div>

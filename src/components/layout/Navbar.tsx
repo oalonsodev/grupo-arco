@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import logo from '../../assets/logo-trans.png';
+import logoTrans from '../../assets/logo-trans.png';
+import logoBlanco from '../../assets/logo-blanco.png';
 import { useTheme } from '../../hooks/useTheme';
 import { cn } from '../../utils/cn'; // Need to create this utility
 import { motion, AnimatePresence } from 'framer-motion';
@@ -34,6 +35,8 @@ export default function Navbar() {
 		}
 	};
 
+	const currentLogo = !isScrolled || theme === 'dark' ? logoBlanco : logoTrans;
+
 	return (
 		<nav
 			className={cn(
@@ -51,7 +54,7 @@ export default function Navbar() {
 					className="flex items-center gap-2 group"
 				>
 					<img
-						src={logo}
+						src={currentLogo}
 						alt="Grupo Arco Energy"
 						className="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform"
 					/>

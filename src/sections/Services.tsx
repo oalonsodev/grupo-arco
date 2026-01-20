@@ -1,36 +1,61 @@
 import { motion } from 'framer-motion';
-import { Settings, Truck, Wrench, ShieldCheck, BarChart3, Users } from 'lucide-react';
+import {
+	Settings,
+	Truck,
+	Wrench,
+	ClipboardCheck,
+	Layers,
+	Package,
+	Filter,
+	Disc,
+	Droplets
+} from 'lucide-react';
 
 const services = [
 	{
 		icon: <Settings className="w-8 h-8" />,
-		title: "Ingeniería Especializada",
-		description: "Diseño y desarrollo de proyectos de ingeniería conceptual, básica y de detalle para instalaciones petroleras."
+		title: "Maquinado Industrial",
+		description: "Maquinaria metalmecánica especializada y personal calificado para mecanizado de precisión con altos estándares."
 	},
 	{
-		icon: <Wrench className="w-8 h-8" />,
-		title: "Mantenimiento Industrial",
-		description: "Servicios de mantenimiento preventivo y correctivo a equipos estáticos y rotativos, garantizando la continuidad operativa."
+		icon: <ClipboardCheck className="w-8 h-8" />,
+		title: "Servicio de Inspección",
+		description: "Inspección bajo estándares de calidad y seguridad aplicables a la industria petrolera y de perforación."
 	},
 	{
 		icon: <Truck className="w-8 h-8" />,
-		title: "Logística y Transporte",
-		description: "Gestión integral de la cadena de suministro y transporte especializado para material y equipos del sector."
+		title: "Transporte y Logística",
+		description: "Solución integral en logística y transporte con equipo propio, personal capacitado y compromiso con la seguridad."
 	},
 	{
-		icon: <ShieldCheck className="w-8 h-8" />,
-		title: "Seguridad Industrial",
-		description: "Consultoría y supervisión en seguridad industrial, salud ocupacional y protección ambiental (SASOPA)."
+		icon: <Layers className="w-8 h-8" />,
+		title: "Geomembranas y Geosintéticos",
+		description: "Instalación, suministro y mantenimiento de geomembranas y geosintéticos con personal y equipos especializados."
 	},
 	{
-		icon: <BarChart3 className="w-8 h-8" />,
-		title: "Optimización de Procesos",
-		description: "Análisis y mejora de procesos productivos para maximizar la eficiencia y reducir costos operativos."
+		icon: <Wrench className="w-8 h-8" />,
+		title: "Venta y Renta de Herramientas",
+		description: "Soluciones integrales mediante suministro y renta de herramientas de perforación con altos estándares de calidad."
 	},
 	{
-		icon: <Users className="w-8 h-8" />,
-		title: "Consultoría Técnica",
-		description: "Asesoramiento experto en normatividad, gestión de activos y mejores prácticas de la industria."
+		icon: <Package className="w-8 h-8" />,
+		title: "Venta de Tubería de Revestimiento",
+		description: "Comercialización de tubería de revestimiento (TR) en diversas medidas y grados bajo estándares internacionales."
+	},
+	{
+		icon: <Disc className="w-8 h-8" />,
+		title: "Venta de Tubería de Perforación",
+		description: "Tuberías de perforación certificadas que aseguran desempeño mecánico y confiabilidad estructural en campo."
+	},
+	{
+		icon: <Droplets className="w-8 h-8" />,
+		title: "Venta de Mangueras de Alta Presión",
+		description: "Suministro de mangueras certificadas para procesos críticos de perforación, cementación y control de pozos."
+	},
+	{
+		icon: <Filter className="w-8 h-8" />,
+		title: "Equipo de Control de Sólidos",
+		description: "Equipos certificados para optimizar el lodo, reducir costos y garantizar operaciones seguras en perforación."
 	}
 ];
 
