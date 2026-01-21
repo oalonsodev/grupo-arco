@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
-import arco1 from '../assets/arco-1.jpeg';
-import arco2 from '../assets/arco-2.jpeg';
-import arco3 from '../assets/arco-3.jpeg';
+import hero1 from '../assets/hero-1.jpeg';
+import hero2 from '../assets/hero-2.jpeg';
+import hero3 from '../assets/hero-3.jpeg';
 
-const heroImages = [arco1, arco2, arco3];
+const heroImages = [hero1, hero2, hero3];
 
 export default function Hero() {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);

@@ -19,7 +19,7 @@ import herramientasImg from "../assets/herramientas.jpeg";
 import tuberiaRevestimientoImg from "../assets/tuberia-revestimiento.png";
 import tuberiaPerforacionImg from "../assets/tuberia-perforacion.jpeg";
 import manguerasImg from "../assets/magueras-alta-presion.png";
-import controlSolidosImg from "../assets/control-solidos.png";
+import controlSolidosImg from "../assets/control-solidos.jpeg";
 
 const services = [
   {

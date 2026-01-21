@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Target, Award } from 'lucide-react';
-import arco4 from '../assets/arco-4.jpeg';
+import aboutImg from '../assets/about.jpeg';
 
 export default function About() {
 	return (
@@ -59,13 +59,13 @@ export default function About() {
 						transition={{ duration: 0.8 }}
 						className="relative"
 					>
-						<div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] bg-slate-200 dark:bg-slate-800 group">
+						<div className="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-200 dark:bg-slate-800 group">
 							<img
-								src={arco4}
+								src={aboutImg}
 								alt="Equipo Grupo Arco Energy"
-								className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+								className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
 							/>
-							<div className="absolute inset-0 bg-primary-600/10 group-hover:bg-transparent transition-colors duration-500"></div>
+							<div className="absolute inset-0 bg-primary-600/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
 						</div>
 
 						{/* Decorative elements */}

@@ -1,7 +1,78 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 export default function Contact() {
+	const [formData, setFormData] = useState({
+		name: "",
+		surname: "",
+		email: "",
+		phone: "",
+		company: "",
+		subject: "",
+		message: ""
+	});
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [result, setResult] = useState<string | null>(null);
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		const { id, value } = e.target;
+		setFormData(prev => ({
+			...prev,
+			[id]: value
+		}));
+	};
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+		setIsSubmitting(true);
+		setResult(null);
+
+		const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+		if (!accessKey) {
+			setResult("Error de configuración: No se encontró la Access Key.");
+			setIsSubmitting(false);
+			return;
+		}
+
+		try {
+			const response = await fetch("https://api.web3forms.com/submit", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				body: JSON.stringify({
+					access_key: accessKey,
+					...formData
+				}),
+			});
+
+			const json = await response.json();
+
+			if (json.success) {
+				setResult("¡Gracias! Tu mensaje ha sido enviado correctamente.");
+				setFormData({
+					name: "",
+					surname: "",
+					email: "",
+					phone: "",
+					company: "",
+					subject: "",
+					message: ""
+				});
+			} else {
+				setResult(json.message || "Algo salió mal. Por favor intenta de nuevo.");
+			}
+		} catch (error) {
+			console.error(error);
+			setResult("Hubo un error al conectar con el servidor.");
+		} finally {
+			setIsSubmitting(false);
+		}
+	};
+
 	return (
 		<section id="contacto" className="py-24 bg-slate-50 dark:bg-slate-950 transition-colors">
 			<div className="container mx-auto px-4 md:px-6">
@@ -98,46 +169,94 @@ export default function Contact() {
 						className="bg-white dark:bg-slate-900 p-8 md:p-10 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800"
 					>
 						<h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Envíanos un mensaje</h4>
-						<form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+
+						{result && (
+							<div className={`p-4 mb-6 rounded-lg ${result.includes("éxito") || result.includes("Gracias") ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300" : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300"}`}>
+								{result}
+							</div>
+						)}
+
+						<form className="space-y-6" onSubmit={handleSubmit}>
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 								<div className="space-y-2">
-									<label htmlFor="name" className="text-sm font-medium text-slate-700 dark:text-slate-300">Nombre completo</label>
+									<label htmlFor="name" className="text-sm font-medium text-slate-700 dark:text-slate-300">Nombre</label>
 									<input
 										type="text"
 										id="name"
+										value={formData.name}
+										onChange={handleChange}
+										required
 										className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white transition-all"
-										placeholder="Juan Pérez"
+										placeholder="Juan"
 									/>
 								</div>
 								<div className="space-y-2">
-									<label htmlFor="email" className="text-sm font-medium text-slate-700 dark:text-slate-300">Correo electrónico</label>
+									<label htmlFor="surname" className="text-sm font-medium text-slate-700 dark:text-slate-300">Apellido</label>
+									<input
+										type="text"
+										id="surname"
+										value={formData.surname}
+										onChange={handleChange}
+										required
+										className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white transition-all"
+										placeholder="Pérez"
+									/>
+								</div>
+								<div className="space-y-2">
+									<label htmlFor="email" className="text-sm font-medium text-slate-700 dark:text-slate-300">Correo</label>
 									<input
 										type="email"
 										id="email"
+										value={formData.email}
+										onChange={handleChange}
+										required
 										className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white transition-all"
 										placeholder="juan@empresa.com"
 									/>
 								</div>
-							</div>
-
-							<div className="space-y-2">
-								<label htmlFor="subject" className="text-sm font-medium text-slate-700 dark:text-slate-300">Asunto</label>
-								<select
-									id="subject"
-									className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white transition-all"
-								>
-									<option value="">Selecciona una opción</option>
-									<option value="cotizacion">Solicitud de Cotización</option>
-									<option value="informacion">Información General</option>
-									<option value="empleo">Bolsa de Trabajo</option>
-									<option value="otro">Otro</option>
-								</select>
+								<div className="space-y-2">
+									<label htmlFor="phone" className="text-sm font-medium text-slate-700 dark:text-slate-300">Tel. contacto</label>
+									<input
+										type="tel"
+										id="phone"
+										value={formData.phone}
+										onChange={handleChange}
+										className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white transition-all"
+										placeholder="+52 993 123 4567"
+									/>
+								</div>
+								<div className="space-y-2">
+									<label htmlFor="company" className="text-sm font-medium text-slate-700 dark:text-slate-300">Compañia</label>
+									<input
+										type="text"
+										id="company"
+										value={formData.company}
+										onChange={handleChange}
+										className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white transition-all"
+										placeholder="Nombre de la empresa"
+									/>
+								</div>
+								<div className="space-y-2">
+									<label htmlFor="subject" className="text-sm font-medium text-slate-700 dark:text-slate-300">Asunto</label>
+									<input
+										type="text"
+										id="subject"
+										value={formData.subject}
+										onChange={handleChange}
+										required
+										className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white transition-all"
+										placeholder="Asunto del mensaje"
+									/>
+								</div>
 							</div>
 
 							<div className="space-y-2">
 								<label htmlFor="message" className="text-sm font-medium text-slate-700 dark:text-slate-300">Mensaje</label>
 								<textarea
 									id="message"
+									value={formData.message}
+									onChange={handleChange}
+									required
 									rows={4}
 									className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white transition-all resize-none"
 									placeholder="Describe brevemente cómo podemos ayudarte..."
@@ -146,10 +265,11 @@ export default function Contact() {
 
 							<button
 								type="submit"
-								className="w-full py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+								disabled={isSubmitting}
+								className="w-full py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
 							>
-								Enviar Mensaje
-								<Send className="w-5 h-5" />
+								{isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+								{!isSubmitting && <Send className="w-5 h-5" />}
 							</button>
 						</form>
 					</motion.div>
