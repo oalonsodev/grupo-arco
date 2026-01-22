@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, Send } from 'lucide-react';
 
 export default function Contact() {
 	const [formData, setFormData] = useState({
@@ -119,16 +119,6 @@ export default function Contact() {
 							<h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Información de Contacto</h4>
 
 							<div className="space-y-6">
-								<a href="#" className="flex items-start gap-4 group">
-									<div className="bg-primary-50 dark:bg-slate-800 p-3 rounded-lg text-primary-600 dark:text-primary-500 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-										<MapPin className="w-6 h-6" />
-									</div>
-									<div>
-										<h5 className="font-semibold text-slate-900 dark:text-white mb-1">Ubicación</h5>
-										<p className="text-slate-600 dark:text-slate-400">Av. Principal #123, CP 86000<br />Villahermosa, Tabasco, México</p>
-									</div>
-								</a>
-
 								<a href="tel:+529931234567" className="flex items-start gap-4 group">
 									<div className="bg-primary-50 dark:bg-slate-800 p-3 rounded-lg text-primary-600 dark:text-primary-500 group-hover:bg-primary-600 group-hover:text-white transition-colors">
 										<Phone className="w-6 h-6" />
@@ -139,13 +129,13 @@ export default function Contact() {
 									</div>
 								</a>
 
-								<a href="mailto:contacto@grupoarco.com" className="flex items-start gap-4 group">
+								<a href="mailto:ventas@grupoarcoenergy.com.mx" className="flex items-start gap-4 group">
 									<div className="bg-primary-50 dark:bg-slate-800 p-3 rounded-lg text-primary-600 dark:text-primary-500 group-hover:bg-primary-600 group-hover:text-white transition-colors">
 										<Mail className="w-6 h-6" />
 									</div>
 									<div>
 										<h5 className="font-semibold text-slate-900 dark:text-white mb-1">Email</h5>
-										<p className="text-slate-600 dark:text-slate-400">contacto@grupoarco.com</p>
+										<p className="text-slate-600 dark:text-slate-400">ventas@grupoarcoenergy.com.mx</p>
 									</div>
 								</a>
 							</div>
@@ -274,8 +264,8 @@ export default function Contact() {
 						</form>
 					</motion.div>
 
-				</div>
-			</div>
-		</section>
+				</div >
+			</div >
+		</section >
 	);
 }
