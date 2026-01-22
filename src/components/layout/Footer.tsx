@@ -1,4 +1,4 @@
-import { Droplets, Mail, MapPin, Phone } from 'lucide-react';
+import { Droplets, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
 	return (
@@ -32,17 +32,13 @@ export default function Footer() {
 					<div>
 						<h3 className="text-lg font-semibold text-white mb-4">Contacto</h3>
 						<ul className="space-y-3">
-							<li className="flex items-start gap-3">
-								<MapPin className="w-5 h-5 text-primary-500 shrink-0" />
-								<span>Av. Principal #123, Villahermosa, Tabasco, México</span>
-							</li>
 							<li className="flex items-center gap-3">
 								<Phone className="w-5 h-5 text-primary-500 shrink-0" />
 								<span>+52 (993) 123 4567</span>
 							</li>
 							<li className="flex items-center gap-3">
 								<Mail className="w-5 h-5 text-primary-500 shrink-0" />
-								<span>contacto@grupoarco.com</span>
+								<span>ventas@grupoarcoenergy.com.mx</span>
 							</li>
 						</ul>
 					</div>
