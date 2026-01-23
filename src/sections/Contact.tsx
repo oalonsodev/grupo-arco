@@ -119,13 +119,13 @@ export default function Contact() {
 							<h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Información de Contacto</h4>
 
 							<div className="space-y-6">
-								<a href="tel:+529931234567" className="flex items-start gap-4 group">
+								<a href="tel:+527821269314" className="flex items-start gap-4 group">
 									<div className="bg-primary-50 dark:bg-slate-800 p-3 rounded-lg text-primary-600 dark:text-primary-500 group-hover:bg-primary-600 group-hover:text-white transition-colors">
 										<Phone className="w-6 h-6" />
 									</div>
 									<div>
 										<h5 className="font-semibold text-slate-900 dark:text-white mb-1">Teléfono</h5>
-										<p className="text-slate-600 dark:text-slate-400">+52 (993) 123 4567</p>
+										<p className="text-slate-600 dark:text-slate-400">(+52) 782-126-93-14</p>
 									</div>
 								</a>
 
@@ -212,7 +212,7 @@ export default function Contact() {
 										value={formData.phone}
 										onChange={handleChange}
 										className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-slate-900 dark:text-white transition-all"
-										placeholder="+52 993 123 4567"
+										placeholder="(+52) 782-126-93-14"
 									/>
 								</div>
 								<div className="space-y-2">
